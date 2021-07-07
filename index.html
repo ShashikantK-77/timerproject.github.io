@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jokes</title>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <style>
+
+
+body
+{
+background-color: rgb(5, 27, 102);
+overflow: hidden;
+
+color:white;
+
+}
+
+
+.counter-container
+{
+   
+    font-family: 'Poppins', sans-serif;
+}
+
+.counter
+{
+   
+    font-size: 60px;
+    color:rgb(172, 209, 9);
+}
+
+
+
+    </style>
+</head>
+
+<body>
+    <div style="display: grid;place-items: center;height: 100vh; width: 100vw;">
+
+    <div style="display: flex;width:100%;justify-content: space-around;">
+    <div style="display: grid;place-items: center;" class="counter-container">
+        <i class="fas fa-mug-hot fa-3x"></i>
+        <div class="counter" data-target="4000"></div>
+        <span>Project completed</span>
+    </div>
+
+    <div style="display: grid;place-items: center;" class="counter-container">
+        <i class="fas fa-users fa-3x"></i>
+        <div class="counter" data-target="15000"></div>
+        <span>Our Happy Clients</span>
+    </div>
+
+    <div style="display: grid;place-items: center;"  class="counter-container">
+        <i class="fas fa-tasks fa-3x"></i>
+        <div class="counter" data-target="500"></div>
+        <span>Project completed</span>
+    </div>
+    </div>
+    </div>
+    
+    <script>
+const counters = document.querySelectorAll('.counter');
+counters.forEach((counter) => {
+// console.log(counter);
+counter.innerHTML = 0;
+const updateCounter = () => {
+const targetCount = +counter.getAttribute('data-target');
+
+const startingCount = Number(counter.innerHTML);
+const incr = targetCount / 100;
+if(startingCount <  targetCount){
+    counter.innerHTML = `${startingCount + incr}`;
+    setTimeout(updateCounter,10);
+}
+}
+
+updateCounter();
+}
+)
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
